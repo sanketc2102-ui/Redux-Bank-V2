@@ -7,14 +7,15 @@ function AccountOperations() {
   const [withdrawalAmount, setWithdrawalAmount] = useState("");
   const [loanAmount, setLoanAmount] = useState("");
   const [loanPurpose, setLoanPurpose] = useState("");
-  const [currency, setCurrency] = useState("USD");
+  const [currency, setCurrency] = useState("INR");
 
   const dispatch = useDispatch();
   const loanAmountToBePaid = useSelector((store) => store.account.loan);
 
   function handleDeposit() {
-    dispatch(deposite(depositAmount));
+    dispatch(deposite(depositAmount, currency));
     setDepositAmount("");
+    setCurrency("INR");
   }
 
   function handleWithdrawal() {
@@ -47,7 +48,7 @@ function AccountOperations() {
             value={currency}
             onChange={(e) => setCurrency(e.target.value)}
           >
-            <option value="USD">US Dollar</option>
+            <option value="INR">Indian Ruppee</option>
             <option value="EUR">Euro</option>
             <option value="GBP">British Pound</option>
           </select>
