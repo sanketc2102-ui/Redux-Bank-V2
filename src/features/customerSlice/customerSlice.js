@@ -1,4 +1,4 @@
-const initialStateexport = {
+const initialState = {
   fullName: "",
   nationalId: "",
   createdAt: "",
